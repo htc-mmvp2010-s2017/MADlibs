@@ -23,42 +23,114 @@ reseting the form to try again
     <title>Master MadLib</title>
     <meta charset="UTF-8">
     <style>
-        div {
-            border: 1px solid red;
-            background-color: #c7af90;
-        }
-
-        .displayNone {
-            display: none;
-        }
-
-        .displayBlock {
-            display: block;
-        }
+    h3 {text-align: center; background-color: #FFE5E5; font-family: "FreeSerif";}
+    h3 {border-color: #5B5A77; border-width: .25em; border-style: solid;}
+    h3 {font-size: 300%; text-shadow: 5px 5px 2px #5B5A77;}
+    body {color: brown; background-color: navy; background-image: url(https://images.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-k1mxzSdBCKI%2FUe2mbEaANHI%2FAAAAAAAAVnc%2FPCN-8frFQQ0%2Fs1600%2Fa-game-of-thrones-world-map-westeros-essos-932x1024.jpg&f=1); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: 100%;}
     </style>
 </head>
 
 <body>
+<form action = "">
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
+        <h3><font color="#040F47">Raise your banners for the King!</font></h3>
+        <fieldset>
+        <p>What is your name Ser Knight?:
             <input id="firstName" type="text" placeholder="first name">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>Which King do you wish to serve?:
+        <select id = "selKing">
+            <option value = "blank"></option>
+            <option value = "robb">Robb Stark</option>
+            <option value = "bal">Balon Greyjoy</option>
+            <option value = "joff">Joffrey Baratheon</option>
+            <option value = "ren">Renly Baratheon</option>
+            <option value = "stan">Stannis Baratheon</option>
+        </select>
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        <p>Where do you come from?:
+        <select id = "selPlace">
+            <option value = "blank"></option>
+            <option value = "north">The North</option>
+            <option value = "river">The Riverlands</option>
+            <option value = "iron">The Iron Islands</option>
+            <option value = "vale">The Vale</option>
+            <option value = "west">The Westerlands</option>
+            <option value = "crown">The Crownlands</option>
+            <option value = "storm">The Stormlands</option>
+            <option value = "reach">The Reach</option>
+            <option value = "dorne">Dorne</option> 
+        </select>
         </p>
+        <p>Are you a bastard of noble birth or a common peasant?:
+        <select id = "selBirth">
+            <option value = "blank"></option>
+            <option value = "bb">Bastard</option>
+            <option value = "cp">Common Peasant</option>
+        </select>
+        </p>
+        <p>What is your choice of weapon?:
+        <select id = "selWeapon">
+            <option value = "blank"></option>
+            <option value = "short">Short Sword</option>
+            <option value = "long">Long Sword</option>
+            <option value = "lance">Lance</option>
+            <option value = "spear">Spear</option>
+            <option value = "axe">Axe</option>
+            <option value = "cross">Crossbow</option>
+            <option value = "bow">Bow</option>
+            <option value = "mace">Mace</option>
+            <option value = "dag">Dagger</option>
+            <option value = "jav">Javelin</option>
+            <option value = "ham">Hammer</option>
+            <option value = "sling">Sling</option>
+            <option value = "tri">Trident</option>
+            <option value = "club">Club</option>
+            <option value = "magic">Magic</option>
+        </select>
+        </p>
+        <p>What is your choice of armor?:
+        <select id = "selArmor">
+            <option value = "blank"></option>
+            <option value = "leather">Leather</option>
+            <option value = "iron">Iron</option>
+            <option value = "robe">Robe</option>
+        </select>
+        </p>
+        <p>What is your profession?:
+        <select id = "selProfession">
+            <option value = "blank"></option>
+            <option value = "pot">Potter</option>
+            <option value = "scul">Sculptor</option>
+            <option value = "black">Blacksmith</option>
+            <option value = "stone">Stonemake</option>
+            <option value = "fish">Fishing</option>
+            <option value = "fight">Fighting</option>
+            <option value = "alch">Alchemy</option>
+        </select>
+        </p>
+        <p>What do you fight for?:
+        <select id = "selChoice">
+            <option value = "blank"></option>
+            <option value = "ff">Friends and Family</option>
+            <option value = "hg">Honor and Glory</option>
+            <option value = "gg">Gold and Greed</option>
+        </select>
+        </p>
+
         <button id="submit">Submit your answers</button>
         <p id="warning">Please answer all questions.</p>
-
     </div>
+    </form>
+    </fieldset>
+
+    <fieldset>   
     <div id="outputPanel">
         <p>Your story....</p>
         <p id="theStory">junk</p>
         <button id="again">Again?</button>
     </div>
+    </fieldset>
     <script>
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
