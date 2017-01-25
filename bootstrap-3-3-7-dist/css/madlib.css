@@ -1,0 +1,59 @@
+/*
+ * my madlib styles
+ */
+
+/* Links */
+
+
+/* Custom default button */
+
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  background-image: url("../../assets/face-mask-178262-68-44.jpg");
+  background-size: cover;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.shadow {
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0,0,0,.5);
+ }
+
+ .madlibFields {
+ float: left;
+ 	margin-top: 80px;
+ 	width: 90%;
+ 	color: white;
+ 	font-size: 1.1em;
+ 	font-weight: bold 700;
+ 	text-shadow: 0 2px 3px rgba(0,0,0,.5);
+ 	clear: both;
+ }
+
+ .storySection {
+   display: none;
+  /* float: left;
+ 	margin-top: 80px;
+ 	width: 90%;
+ 	color: white;
+ 	font-size: 1.1em;
+ 	font-weight: bold 700;
+ 	text-shadow: 0 2px 3px rgba(0,0,0,.5);
+ 	clear: both;*/
+ }
+
+/* @media only screen
+and (min-width: 450px)
+and (max-width: 768px) {
+	  .weeks p {
+	  padding: 0 20%;
+	}
+}
+*/

@@ -1,4 +1,6 @@
 <!--
+Dawn Manske
+HTC 2010 JavaScript course Spring 2017
 making MadLIBs
 how do we show/hide? display. visibility
 reference the core concept topics to assist you
@@ -17,48 +19,174 @@ reseting the form to try again
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Master MadLib</title>
-    <meta charset="UTF-8">
-    <style>
-        div {
-            border: 1px solid red;
-            background-color: #c7af90;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="MadLib assignment">
+    <meta name="author" content="Dawn M">
+    <!--  <link rel="icon" href="../../favicon.ico"> -->
 
+    <title>Sandbur Farm Master MadLib</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3-3-7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="bootstrap-3-3-7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="bootstrap-3-3-7-dist/css/cover.css" rel="stylesheet">
+
+    <!--  my custom css styles for this madlib project -->
+    <link href="bootstrap-3-3-7-dist/css/madlib.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <style>
         .displayNone {
             display: none;
         }
-
         .displayBlock {
             display: block;
         }
-    </style>
+        </style> -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
 </head>
 
 <body>
-    <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
-        </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
-        </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
-        </p>
-        <button id="submit">Submit your answers</button>
-        <p id="warning">Please answer all questions.</p>
+
+    <div class="shadow">
+        <div class="site-wrapper">
+
+            <div class="site-wrapper-inner">
+
+                <div class="cover-container">
+
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h1 class="masthead-brand">MadLib Fun</h1>
+                            <!-- <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav> -->
+                        </div>
+                    </div>
+
+
+                    <div class="madlibFields">
+                        <div class="row">
+                            <div id="inputPanel">
+                                <p>noun:
+                                    <input id="firstNoun" type="text" placeholder="action noun">
+                                </p>
+                                <p>male first name:
+                                    <input id="firstNameMale" type="text" placeholder="male first name">
+                                </p>
+                                <p>female first name:
+                                    <input id="firstNameFemale" type="text" placeholder="female first name">
+                                </p>
+                                <p>weather condition:
+                                    <input id="weather" type="text" placeholder="weather condition">
+                                </p>
+                                <p>verb ending in "ing":
+                                    <input id="verbIng" type="text" placeholder="verb ending in 'ing'">
+                                </p>
+                                <p>type of food:
+                                    <input id="food" type="text" placeholder="type of food">
+                                </p>
+                                <p>proper name:
+                                    <input id="properName" type="text" placeholder="proper name">
+                                </p>
+                                <p>place:
+                                    <input id="palce" type="text" placeholder="place">
+                                </p>
+                                <p>noun:
+                                    <input id="secondNoun" type="text" placeholder="noun">
+                                </p>
+                                <p>occupation:
+                                    <input id="occupationOne" type="text" placeholder="occpuation">
+                                </p>
+                                <p>occupation:
+                                    <input id="occupationTwo" type="text" placeholder="occpuation">
+                                </p>
+                                <p>occupation:
+                                    <input id="occupationThree" type="text" placeholder="occpuation">
+                                </p>
+                                <p>distance:
+                                    <input id="distance" type="text" placeholder="distance">
+                                </p>
+                                <p>color:
+                                    <input id="color" type="text" placeholder="color">
+                                </p>
+                                <p>adjective:
+                                    <input id="adjective" type="text" placeholder="adjective">
+                                </p>
+                                <p>noun:
+                                    <input id="thirdNoun" type="text" placeholder="noun">
+                                </p>
+
+                                <button id="submit">Submit your answers</button>
+                                <p id="warning">Please answer all questions.</p>
+                            </div>
+
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end madlibFields -->
+
+
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p>&copy; Copyright 2017 Sandbur Farm Productions</a>.</p>
+                        </div>
+                    </div>
+                    <!-- end .mastfoot -->
+
+                    <div class="storySection">
+                        <div id="outputPanel">
+                            <p>New Orleans MadLib</p>
+                            <p id="theStory">New Orleans #firstNoun</p>
+                            <p>
+#firstNameMale and #firstNameFemale flew down to New Orleans on an #firstNoun.</p>
+<p>
+It was a cool, #weather, rainy day. But they were hungry and decided to venture out on a self-guided #verbIng tour into the heart of the city in search of authentic #food food.</p>
+<p>
+A local resident suggested they take the #properName Ferry to “#place”. #firstNameFemale went to freshen up while #firstNameMale sat at the bar. #firstNameMale felt out of place because it was filled with nothing but #secondNoun bikers. The bartender told #firstNameMale it was alright. They are all just weekend bikers. #occupationOne, #occupationTwo and #occupationThree by trade. When #firstNameFemale got back to the bar #firstNameMale wanted to leave. #firstNameFemale wanted to drink her beer, but it wasn’t too long before she started to feel ill at ease too. They left the bar to catch the ferry back downtown.</p>
+<p>
+#firstNameFemale headed the wrong direction and wouldn’t listen to #firstNameMale about it, until they had gone several #distance. They tried to go back the way they had come. But by now it was pitch #color outside. The street lamps only gave off a very #adjective light. There weren’t any people around. The only sounds they could hear were their own foot steps on the cobble stone streets and the #thirdNoun of barking dogs. A thick fog was rolling in. The streets were not laid out on a normal grid pattern. They were crooked. Every time they chose a street they wound up at a dead end with a cemetery gate greeting them.</p>
+<p>Just as they felt like a vampire would be swooping down upon them at any moment, they managed to emerge at the street leading to the ferry dock. They lived to tell the tale.</p>
+                            <button id="again">Again?</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- end .cover-container -->
+
+            </div>
+            <!-- end .site-wrapper-inner -->
+
+        </div>
+        <!-- end .site-wrapper  -->
 
     </div>
-    <div id="outputPanel">
-        <p>Your story....</p>
-        <p id="theStory">junk</p>
-        <button id="again">Again?</button>
-    </div>
+    <!-- shadow box -->
+
+
+    <!-- custom JavaScript to execute the MadLib story
+=================================================== -->
     <script>
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
@@ -70,7 +198,7 @@ reseting the form to try again
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
 
-        document.querySelector('#firstName').focus();
+        document.querySelector("#firstName").focus();
 
         var firstName = document.querySelector('#firstName');
         var favColor = document.querySelector("#favColor");
@@ -99,6 +227,18 @@ reseting the form to try again
 
         }
     </script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="bootstrap-3-3-7-dist/jquery.min.js"><\/script>')
+    </script>
+    <script src="bootstrap-3-3-7-dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap-3-3-7-dist/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 
 </html>
