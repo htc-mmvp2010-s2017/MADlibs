@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  background: #fdfffe;
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  display: flex;
+  margin: 0; }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  flex: 1 100%;
+  font-size: 16px;
+  color: rgba(145, 146, 146, 0.8);
+  margin: 0; }
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin-top: 160px; }
+
+.question-text {
+  font-size: 24px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8); }
+
+.input {
+  display: flex;
+  width: 280px;
+  height: 36px; }
+
+.input-text {
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.97);
+  border: 1px solid #919292;
+  border-radius: 3px 0 0 3px;
+  flex: 1 auto; }
+  .input-text:focus {
+    outline: 2px dotted #52e3c4;
+    outline-offset: -3px; }
+
+.button {
+  color: rgba(255, 255, 255, 0.97);
+  background-color: #52e3c4;
+  border: solid 1px rgba(145, 146, 146, 0.8);
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  width: 52px;
+  transition: 250ms;
+  display: flex;
+  justify-content: center;
+  padding: 0; }
+  .button i {
+    margin: 0 auto; }
+  .button:focus {
+    outline: none; }
+  .button:hover {
+    background-color: #42f3cd; }
+  .button:active {
+    background-color: #23d5af; }
+  .button .disabled {
+    background-color: #bbf4e8; }
+
+/* display none */
+.reset-button {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.97);
+  background-color: #52e3c4;
+  border: solid 1px rgba(145, 146, 146, 0.8);
+  border-radius: 3px;
+  width: 104px;
+  height: 52px;
+  transition: 250ms;
+  display: flex;
+  justify-content: center;
+  padding: 0; }
+
+.displayNone {
+  display: none; }
+
+.displayFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap; }
+
+#outputPanel {
+  flex-flow: row nowrap;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0; }
+
+.story {
+  flex: 1 50%;
+  padding: 64px; }
+
+.image {
+  flex: 1 50%;
+  height: 100vh; }
+  .image-rey {
+    flex: 1 50%;
+    height: 100vh;
+    background-image: url("../img/rey.png");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .image-kylo {
+    flex: 1 50%;
+    height: 100vh;
+    background-image: url("../img/kylo.png");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .image-jar {
+    flex: 1 50%;
+    height: 100vh;
+    background-image: url("../img/jar.png");
+    background-repeat: no-repeat;
+    background-size: cover; }
