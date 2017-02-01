@@ -111,16 +111,19 @@ body {
     height: 100vh;
     background-image: url("../img/rey.png");
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    background-position: center; }
   .image-kylo {
     flex: 1 50%;
     height: 100vh;
     background-image: url("../img/kylo.png");
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    background-position: center; }
   .image-jar {
     flex: 1 50%;
     height: 100vh;
     background-image: url("../img/jar.png");
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    background-position: center; }

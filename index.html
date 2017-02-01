@@ -78,16 +78,24 @@ Mackenzie Luoma
   document.querySelector("#again").style.cursor = "pointer";
 
   function changeClass1() {
-    question1.className = "displayNone";
-    question2.className = "displayFlex";
+    if (firstName.value != "") {
+      question1.className = "displayNone";
+      question2.className = "displayFlex";
+      document.querySelector('#favColor').focus();
+    }
   }
   function changeClass2() {
-    question2.className = "displayNone";
-    question3.className = "displayFlex";
+    if (favColor.value != "") {
+      question2.className = "displayNone";
+      question3.className = "displayFlex";
+      document.querySelector('#place').focus();
+    }
   }
   function changeClass3() {
-    inputPanel.className = "displayNone";
-    outputPanel.className = "content";
+    if (place.value != "") {
+      inputPanel.className = "displayNone";
+      outputPanel.className = "content";
+    }
     writeStory();
   }
 
@@ -116,6 +124,21 @@ Mackenzie Luoma
       image.className = "image-jar";
     }
     theStory.innerHTML = finishedStory;
+  }
+
+  // Enter
+  window.addEventListener("keydown", keydownHandler, false);
+
+  function keydownHandler(event) {
+      if (event.keyCode === 13 && firstName.value != "") {
+        changeClass1();
+      }
+      if (event.keyCode === 13 && favColor.value != "") {
+        changeClass2();
+      }
+      if (event.keyCode === 13 && place.value != "") {
+        changeClass3();
+      }
   }
 
   // Reset button
