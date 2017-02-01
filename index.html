@@ -1,0 +1,159 @@
+<!--
+Mackenzie Luoma
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Start Ways MadLibs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<!-- Question 1 container -->
+<main id="inputPanel" class="content">
+
+  <section id="question1" class="displayFlex">
+    <p class="question-text">Who are you?</p>
+    <div class="input">
+      <input id="firstName" class="input-text" type="text" placeholder="name">
+      <button id="submit1" class="button" onclick="changeClass1()">Go</button>
+    </div>
+  </section>
+
+  <!-- Question 2 container -->
+  <section id="question2" class="displayNone">
+    <p class="question-text">What is your favorite color?</p>
+    <div class="input">
+      <input id="favColor" class="input-text" type="text" placeholder="color">
+      <button id="submit2" class="button" onclick="changeClass2()">Go</button>
+    </div>
+  </section>
+
+  <!-- Question 3 container -->
+  <section id="question3" class="displayNone">
+    <p class="question-text">Where do you want to go?</p>
+    <div class="input">
+      <input id="place" class="input-text" type="text" placeholder="place">
+      <button id="submit3" class="button" onclick="changeClass3()">Go</button>
+    </div>
+  </section>
+
+  <!-- <p id="warning" class="">Please answer all questions.</p> -->
+</main>
+
+
+  <div id="outputPanel" class="displayNone">
+    <div class="story">
+      <p id="theStory">insert story here</p>
+      <button id="again" class="reset-button" onclick="reset()">Again?</button>
+    </div>
+    <div id="image" class="image">
+    </div>
+  </div>
+
+
+  <!-- scripts -->
+  <script>
+  // Main containers
+  var inputPanel = document.querySelector("#inputPanel");
+  var outputPanel = document.querySelector("#outputPanel");
+  // questions
+  var question1 = document.querySelector("#question1");
+  var question2 = document.querySelector("#question2");
+  var question3 = document.querySelector("#question3");
+
+  // Questions
+  var submit1 = document.querySelector("#submit1");
+  var submit2 = document.querySelector("#submit2");
+  var submit3 = document.querySelector("#submit3");
+  submit1.style.cursor = "pointer";
+  submit2.style.cursor = "pointer";
+  submit3.style.cursor = "pointer";
+  document.querySelector("#again").style.cursor = "pointer";
+
+  function changeClass1() {
+    if (firstName.value != "") {
+      question1.className = "displayNone";
+      question2.className = "displayFlex";
+      document.querySelector('#favColor').focus();
+    }
+  }
+  function changeClass2() {
+    if (favColor.value != "") {
+      question2.className = "displayNone";
+      question3.className = "displayFlex";
+      document.querySelector('#place').focus();
+    }
+  }
+  function changeClass3() {
+    if (place.value != "") {
+      inputPanel.className = "displayNone";
+      outputPanel.className = "content";
+    }
+    writeStory();
+  }
+
+  // Answers
+  var firstName = document.querySelector('#firstName');
+  var favColor = document.querySelector("#favColor");
+  var place = document.querySelector('#place');
+  var theStory = document.querySelector("#theStory");
+  var image = document.querySelector("#image");
+
+  // Story
+  function writeStory() {
+    var finishedStory = "";
+    if (favColor.value == "red" || favColor.value == "Red") {
+      finishedStory += "<p>Yo listen, " + firstName.value + " is secretly Kylo Ren. ";
+      finishedStory += "<p>It seems like he is going to blow up " + place.value + " next.</p>";
+      image.className = "image-kylo";
+    } else if (favColor.value == "blue" || favColor.value == "Blue") {
+        finishedStory += "<p>" + firstName.value + " would really like a Rey or BB-8 toy. ";
+        finishedStory += "<p>Here it is. Don't lose it on your trip to " + place.value + " like Luke lost his hand.</p>";
+        image.className = "image-rey";
+    } else {
+      finishedStory += "<p>" + firstName.value + "'s favorite Star Wars character is Jar Jar Binks. ";
+      finishedStory += "Anyone who picks " + favColor.value + " as their favorite color obviously loves Jar Jar Binks.</p>";
+      finishedStory += "<p>" + firstName.value + " would like a romantic weekend away in " + place.value + " with Jar Jar Binks.</p>";
+      image.className = "image-jar";
+    }
+    theStory.innerHTML = finishedStory;
+  }
+
+  // Enter
+  window.addEventListener("keydown", keydownHandler, false);
+
+  function keydownHandler(event) {
+      if (event.keyCode === 13 && firstName.value != "") {
+        changeClass1();
+      }
+      if (event.keyCode === 13 && favColor.value != "") {
+        changeClass2();
+      }
+      if (event.keyCode === 13 && place.value != "") {
+        changeClass3();
+      }
+  }
+
+  // Reset button
+  function reset() {
+    inputPanel.className = "content";
+    outputPanel.className = "displayNone";
+    question1.className = "displayFlex"
+    question2.className = "displayNone"
+    question3.className = "displayNone"
+    firstName.value = "";
+    favColor.value = "";
+    place.value = "";
+  }
+  </script>
+
+</body>
+
+</html>
