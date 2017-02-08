@@ -1,31 +1,37 @@
-<!--
-making MadLIBs
-how do we show/hide? display. visibility
-reference the core concept topics to assist you
-22 innerHTML
-25 events
-26 removals
-29 entering Text
-23 change CSS
-className=""
-display vs visibility
-28 enter key
-focus() blur()
-cursor pointer
-preventing empty inputs
-reseting the form to try again
--->
+
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Master MadLib</title>
+    <title>Valentine Master MadLib</title>
+    <!-- Author: Darla Safarian -->
     <meta charset="UTF-8">
     <style>
+        header {
+          background-image: url(heart2.png)
+
+
+        }
+        header h1 {
+          padding-top: 40px;
+          padding-bottom: 100px;
+          font-family: verdana, arial, sans-serif;*/
+          font-weight: bold;
+          color: #eae4e4;
+          text-align: center;
+          background-repeat: repeat;
+
+        }
         div {
-            border: 1px solid red;
-            background-color: #c7af90;
+            border: 15px groove #9e0813;
+            text-indent: 25px;
+            /*background-color: #c7af90;*/
+            color: #003366;
+            font-family: verdana, arial, sans-serif;
+            font-weight: bold;
+            background-image: url(confectionary.png);
+            background-repeat:repeat;
         }
 
         .displayNone {
@@ -35,30 +41,90 @@ reseting the form to try again
         .displayBlock {
             display: block;
         }
+      .button {
+          margin-left: 20px;
+          background-color: gray;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+        }
+
+        #theStory{
+          margin-left: 20px;
+        }
+
+        footer {
+          background-color: #ac0202;
+          margin-top: 3px;
+          padding: 10px 0px 10px 0px;
+          color: #eae4e4;
+          font-size: 10px;
+          font-family: verdana, arial, sans-serif;
+          text-align: center;
+        }
     </style>
 </head>
 
 <body>
+  <header>
+    <h1> Valentine's MADlib</h1>
+  </header>
     <div id="inputPanel">
         <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
+        <p>How does the weathercaster describe precipitation:
+            <input id="precipitation" type="text" placeholder="Describe precipitation">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>One word describing winter climate in Minnesota:
+            <input id="winter" type="text" placeholder="Describe winter in MN">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        <p>Name of your favorite pet:
+            <input id="pet" type="text" placeholder="Favorite pet's name">
         </p>
-        <button id="submit">Submit your answers</button>
+        <p>Name a female news anchor:
+            <input id="newsAnchor" type="text" placeholder="Female news anchor">
+        </p>
+        <p>Place you spend most of your waking hours:
+            <input id="hours" type="text" placeholder="Place most hours spent">
+        </p>
+        <p>Favorite winter activity:
+            <input id="activity" type="text" placeholder="Winter activity">
+        </p>
+        <p>How you'd feel if you won the lottery:
+            <input id="wonLottery" type="text" placeholder="I feel...">
+        </p>
+        <p>Favorite flower:
+            <input id="flower" type="text" placeholder="Favorite flower">
+        </p>
+        <p>Message to someone your meeting for dinner:
+            <input id="message" type="text" placeholder="Message">
+        </p>
+        <p>Adjective for proud:
+            <input id="proud" type="text" placeholder="Adjective for proud">
+        </p>
+        <p>Sound of musical instrument:
+            <input id="instrument" type="text" placeholder="Sound of instrument">
+        </p>
+        <p>Describe the size of an elephant:
+            <input id="elephant" type="text" placeholder="Size of an elephant">
+        </p>
+
+        <button id="submit" class="button">Submit your answers</button>
         <p id="warning">Please answer all questions.</p>
 
     </div>
     <div id="outputPanel">
         <p>Your story....</p>
-        <p id="theStory">junk</p>
-        <button id="again">Again?</button>
+        <p id="theStory">adventure awaits</p>
+        <button id="again" class="button">Again?</button>
     </div>
+    <footer>
+          <p style="font-size: 8px;"> &#169 2017 DSafar. All rights reserved.</p></footer>
+    </footer>
+
     <script>
         var inputPanel = document.querySelector("#inputPanel");
         var outputPanel = document.querySelector("#outputPanel");
@@ -66,18 +132,36 @@ reseting the form to try again
 
         var submit = document.querySelector("#submit");
         submit.addEventListener("click", writeStory, false);
-
+window.addEventListener("keydown", keyDown, false);
+function keyDown(e){
+if (e.keyCode == 13) {
+  writeStory();
+}
+}
         var again = document.querySelector("#again");
         again.addEventListener("click", resetPage, false);
 
-        document.querySelector('#firstName').focus();
+        document.querySelector('#precipitation').focus();
 
-        var firstName = document.querySelector('#firstName');
-        var favColor = document.querySelector("#favColor");
-        var place = document.querySelector('#place');
+        var precipitation = document.querySelector('#precipitation');
+        var winter = document.querySelector("#winter");
+        var pet = document.querySelector('#pet');
+        var newsAnchor = document.querySelector('#newsAnchor');
+        var hours = document.querySelector('#hours');
+        var activity = document.querySelector('#activity');
+        var wonLottery = document.querySelector('#wonLottery');
+        var flower = document.querySelector('#flower');
+        var message = document.querySelector('#message');
+        var proud = document.querySelector('#proud');
+        var instrument = document.querySelector('#instrument');
+        var elephant = document.querySelector('#elephant');
+
+
         var theStory = document.querySelector("#theStory");
 
         window.addEventListener("keydown", keydownHandler, false);
+
+        precipitation.focus();
 
         function keydownHandler(event) {
             console.log("Enter key pressed");
@@ -86,17 +170,103 @@ reseting the form to try again
 
         function checkComplete() {
             //verify the user filled in the form
+            var warningText = "Please provide: ";
+            var warningArray = [];
+            if (precipitation.value == "") {
+                warningArray.push("precipitation");
+            }
+            if (winter.value == "") {
+                warningArray.push("winter");
+            }
+            if (pet.value == "") {
+                warningArray.push("pet");
+            }
+            if (newsAnchor.value == "") {
+                warningArray.push("newsAnchor");
+            }
+            if (hours.value == "") {
+                warningArray.push("hours");
+            }
+            if (activity.value == "") {
+                warningArray.push("activity");
+            }
+            if (wonLottery.value == "") {
+                warningArray.push("wonLottery");
+            }
+            if (flower.value == "") {
+                warningArray.push("flower");
+            }
+            if (message.value == "") {
+                warningArray.push("message");
+            }
+            if (proud.value == "") {
+                warningArray.push("proud");
+            }
+            if (instrument.value == "") {
+                warningArray.push("instrument");
+            }
+            if (elephant.value == "") {
+                warningArray.push("elephant");
+            }
+            if (warningArray.length !== 0) {
+                //join prints out the array with the specified delimiter
+                warningText += warningArray.join(", ");
+                warning.innerHTML = warningText;
+                return false;
+            } else {
+                return true;
+            }
 
         }
 
         function writeStory() {
             //grab the input values to write the story
+          if (checkComplete() == true) {
+
+
+              var finishedStory = "";
+              finishedStory += "<p>The forcast for Valentine’s Day was " + precipitation.value + " and " + winter.value + " but " + pet.value + " was determined to make it a special day for his new girlfriend " + newsAnchor.value + ".";
+              finishedStory += " He had planned the whole day with flowers being delivered to her home, balloons arriving by singing messenger to her " + hours.value + ", and an evening of dinner and " + activity.value + ".</p>";
+              finishedStory += " <p>The day started out as planned when he received her call and could hear her " + wonLottery.value + " voice over the " + flower.value + " bouquet she found on her front step with a note that said '" + message.value + "'.";
+              finishedStory += " " + pet.value + " drove to work " + proud.value + " with his plan. He had this romance thing down, contrary to opinions of his many ex-girlfriends. </p>";
+              finishedStory += "<p>It wasn’t long after he arrived to work that he picked up a frantic voicemail from " + newsAnchor.value + " who had just been serenaded to Miriah Careys’, “I Don’t”, by " + pet.value + "'s ex-girlfriend. ";
+              finishedStory += "Then he heard the " + instrument.value + " of his cell phone notifying him of an incoming message. ";
+              finishedStory += "It was a photo from " + newsAnchor.value +" of his ex in front of a " + elephant.value + " bouquet of mylar balloons printed with the faces all his ex-girlfriends.</p>";
+
+
+              //do not add too many items in a single line or the code likes to break
+              theStory.innerHTML = finishedStory;
+
+              inputPanel.className = "displayNone";
+              outputPanel.className = "displayBlock";
+              warning.className = "displayNone";
+
+          } else {
+              console.log("the form was not complete");
+              warning.className = "displayBlock";
+          }
 
         }
 
         function resetPage() {
             //put stuff here to reset the page so the user can try again
+            inputPanel.className = "displayBlock";
+            outputPanel.className = "displayNone";
+            warning.className = "displayNone";
+            precipitation.value = "";
+            winter.value = "";
+            pet.value= "";
+            newsAnchor.value= "";
+            hours.value= "";
+            activity.value= "";
+            wonLottery.value= "";
+            flower.value= "";
+            message.value= "";
+            proud.value= "";
+            instrument.value= "";
+            elephant.value= "";
 
+            precipitation.focus();
         }
     </script>
 </body>
